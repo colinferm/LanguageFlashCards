@@ -1,0 +1,57 @@
+<nav class="navbar app-navbar">
+  <div class="container-fluid d-flex align-items-center gap-3">
+    <span class="navbar-brand text-white mb-0 h5">
+      Test Yourself
+    </span>
+  </div>
+</nav>
+
+<div class="summary-scene">
+
+  <div class="summary-card">
+    <p class="summary-heading">Test Complete!</p>
+
+    <div class="summary-score-ring">
+      <span class="summary-score-num"><%= correct %></span>
+      <span class="summary-score-denom">/ <%= total %></span>
+    </div>
+
+    <div class="summary-stats">
+      <div class="summary-stat stat-correct">
+        <span class="stat-icon">&#10003;</span>
+        <span class="stat-count"><%= correct %></span>
+        <span class="stat-label">correct</span>
+      </div>
+      <div class="summary-stat stat-incorrect">
+        <span class="stat-icon">&#10007;</span>
+        <span class="stat-count"><%= incorrect %></span>
+        <span class="stat-label">incorrect</span>
+      </div>
+    </div>
+  </div>
+
+  <% if (missed.length > 0) { %>
+  <div class="words-to-learn">
+    <p class="words-to-learn-heading">Words to Learn</p>
+    <ul class="words-to-learn-list">
+      <% _.each(missed, function(word) { %>
+      <li class="words-to-learn-item">
+        <span class="wtl-german"><%= word.de %></span>
+        <span class="wtl-english"><%= word.en %></span>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+  <% } %>
+
+  <div class="summary-actions">
+    <button class="menu-btn menu-btn-a1" id="js-restart">
+      Start Again
+      <span class="level-description">New randomised dataset</span>
+    </button>
+    <button class="menu-btn menu-btn-vocab" id="js-home">
+      Main Menu
+    </button>
+  </div>
+
+</div>

@@ -1,0 +1,5 @@
+node_modules/
+build/
+src/js/templates.js
+npm-debug.log*
+.DS_Store

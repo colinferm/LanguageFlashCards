@@ -1,0 +1,38 @@
+<nav class="navbar app-navbar">
+  <div class="container-fluid d-flex align-items-center gap-3">
+    <button class="btn btn-sm btn-back" id="js-back">
+      &#8592; Back
+    </button>
+    <span class="navbar-brand text-white mb-0 h5 me-auto">
+      Test Yourself
+    </span>
+  </div>
+</nav>
+
+<div class="test-scene">
+
+  <!-- Score display -->
+  <div class="test-score-bar">
+    <span class="test-score-label">Score</span>
+    <span class="test-score-value">
+      <span class="score-correct"><%= correct %></span>
+      <span class="score-sep">/</span>
+      <span class="score-seen"><%= seen %></span>
+    </span>
+    <span class="test-score-remaining"><%= total - seen %> remaining</span>
+  </div>
+
+  <!-- Card: prompt word -->
+  <div class="test-card">
+    <p class="test-prompt-label"><%= promptLabel %></p>
+    <p class="test-english-word"><%= promptWord %></p>
+  </div>
+
+  <!-- Answer choices -->
+  <div class="test-choices">
+    <% _.each(choices, function(de) { %>
+    <button class="test-choice-btn" data-de="<%= de %>"><%= de %></button>
+    <% }); %>
+  </div>
+
+</div>

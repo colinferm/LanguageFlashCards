@@ -1,0 +1,47 @@
+<nav class="navbar app-navbar">
+  <div class="container-fluid d-flex align-items-center gap-3">
+    <button class="btn btn-sm btn-back" id="js-settings-back">
+      &#8592; Back
+    </button>
+    <span class="navbar-brand text-white mb-0 h5 me-auto">
+      Settings
+    </span>
+  </div>
+</nav>
+
+<div class="settings-body">
+
+  <div class="settings-section">
+    <div class="settings-label-row">
+      <label class="settings-label" for="js-deck-size">Session length</label>
+      <span class="settings-value-badge" id="js-deck-size-display"><%= deckSize %></span>
+    </div>
+    <input
+      type="range"
+      class="settings-slider"
+      id="js-deck-size"
+      min="10" max="140" step="5"
+      value="<%= deckSize %>"
+    >
+    <div class="settings-range-labels">
+      <span>10</span>
+      <span>140</span>
+    </div>
+  </div>
+
+  <div class="settings-section">
+    <label class="settings-label" for="js-level">Language level</label>
+    <select class="settings-select" id="js-level">
+      <% _.each(validLevels, function (lvl) { %>
+      <option value="<%= lvl %>"<%= lvl === level ? ' selected' : '' %>><%= lvl %></option>
+      <% }); %>
+    </select>
+    <p class="settings-hint">
+      The selected level will be the majority of words shown in quizzes.
+      Lower levels fill the remaining ~10&nbsp;%.
+    </p>
+  </div>
+
+  <button class="settings-save-btn" id="js-settings-save">Save &amp; return</button>
+
+</div>

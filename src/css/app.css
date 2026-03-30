@@ -1,0 +1,793 @@
+/* ==========================================================================
+   German Flashcards – Custom Styles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Global / Reset
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #f0f2f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   Navigation
+   -------------------------------------------------------------------------- */
+.app-navbar {
+  background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.app-navbar .navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.app-navbar .btn-back {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.app-navbar .btn-back:hover,
+.app-navbar .btn-back:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #fff;
+  color: #fff;
+}
+
+.app-navbar .level-badge {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 2px 10px;
+  font-size: 0.8rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Main Menu & Vocab Menu
+   -------------------------------------------------------------------------- */
+.menu-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  padding: 2rem 1.5rem;
+}
+
+.menu-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.menu-grid {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.menu-btn {
+  padding: 1.1rem 1.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border-radius: 14px;
+  border: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.menu-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+}
+
+.menu-btn-vocab {
+  background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+  color: #fff;
+}
+
+.menu-btn-a1 {
+  background: linear-gradient(135deg, #34a853 0%, #1e7e3e 100%);
+  color: #fff;
+}
+
+.menu-btn-a2 {
+  background: linear-gradient(135deg, #fbbc04 0%, #e37400 100%);
+  color: #fff;
+}
+
+.menu-btn-b1 {
+  background: linear-gradient(135deg, #ea4335 0%, #b31412 100%);
+  color: #fff;
+}
+
+.level-description {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  font-weight: 400;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Flashcard Scene
+   -------------------------------------------------------------------------- */
+.flashcard-scene {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  padding: 1.5rem 1.25rem 2rem;
+  gap: 1.25rem;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Progress bar */
+.progress-row {
+  width: 100%;
+  max-width: 500px;
+}
+
+.progress-label {
+  font-size: 0.75rem;
+  color: #666;
+  text-align: right;
+  margin-bottom: 4px;
+}
+
+.progress {
+  height: 4px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Card Flip (3-D)
+   -------------------------------------------------------------------------- */
+.card-scene {
+  width: 100%;
+  max-width: 500px;
+  perspective: 1200px;
+}
+
+.card-flipper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 62%;   /* 16:10 aspect ratio */
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
+  cursor: pointer;
+  border-radius: 18px;
+}
+
+.card-flipper.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* Front face – light, neutral */
+.card-front {
+  background: #ffffff;
+}
+
+/* Back face – colourful, rotated 180° */
+.card-back {
+  background: linear-gradient(145deg, #1a73e8 0%, #6a1bbd 100%);
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+/* Word typography */
+.word-german {
+  font-size: clamp(1.8rem, 6vw, 3rem);
+  font-weight: 700;
+  color: #1a1a2e;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.word-english {
+  font-size: clamp(1.8rem, 6vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.word-sub {
+  font-size: clamp(0.9rem, 3vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+}
+
+.tap-hint {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   Swipe hint
+   -------------------------------------------------------------------------- */
+.swipe-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.swipe-hint svg {
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Next-card button (right-edge click zone, desktop / non-touch only)
+   -------------------------------------------------------------------------- */
+
+/* Hidden by default; only shown when the device can hover (i.e. has a mouse) */
+.card-next-btn {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card-next-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 52px;
+    height: 100%;
+
+    background: transparent;
+    border: none;
+    border-radius: 0 18px 18px 0;
+    color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+    z-index: 10;    /* sits above the card faces */
+  }
+
+  .card-next-btn:hover {
+    background: rgba(0, 0, 0, 0.06);
+    color: rgba(0, 0, 0, 0.55);
+  }
+
+  .card-next-btn:active {
+    background: rgba(0, 0, 0, 0.12);
+  }
+
+  /* Keep the hint text visible on desktop too */
+  .swipe-hint::before {
+    content: "Click right edge or ";
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Swipe animation feedback
+   -------------------------------------------------------------------------- */
+.card-flipper.swipe-out-left {
+  animation: swipeLeft 0.3s ease forwards;
+}
+
+@keyframes swipeLeft {
+  0%   { transform: translateX(0) rotateZ(0deg); opacity: 1; }
+  100% { transform: translateX(-110%) rotateZ(-8deg); opacity: 0; }
+}
+
+.card-flipper.swipe-in-right {
+  animation: swipeInRight 0.3s ease forwards;
+}
+
+@keyframes swipeInRight {
+  0%   { transform: translateX(110%) rotateZ(8deg); opacity: 0; }
+  100% { transform: translateX(0) rotateZ(0deg); opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   Test Yourself – menu buttons
+   -------------------------------------------------------------------------- */
+.menu-btn-test {
+  background: linear-gradient(135deg, #6a1bbd 0%, #3a0080 100%);
+  color: #fff;
+}
+
+.menu-btn-test-reverse {
+  background: linear-gradient(135deg, #b31a6b 0%, #7a003f 100%);
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Settings icon button (navbar)
+   -------------------------------------------------------------------------- */
+.settings-icon-btn {
+  padding: 6px 8px;
+  background: transparent;
+  border: none;
+  line-height: 1;
+  opacity: 0.9;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.settings-icon-btn:hover,
+.settings-icon-btn:focus {
+  opacity: 1;
+  transform: rotate(30deg);
+  background: transparent;
+  box-shadow: none;
+  outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   Settings screen
+   -------------------------------------------------------------------------- */
+.settings-body {
+  padding: 2rem 1.25rem 3rem;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.settings-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.settings-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 0;
+}
+
+.settings-value-badge {
+  background: #1a73e8;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 2px 12px;
+  min-width: 3rem;
+  text-align: center;
+}
+
+.settings-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #d0d8e8;
+  outline: none;
+  cursor: pointer;
+}
+
+.settings-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #1a73e8;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+}
+
+.settings-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #1a73e8;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+}
+
+.settings-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: #666;
+}
+
+.settings-select {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid #d0d8e8;
+  border-radius: 10px;
+  background: #fff;
+  color: #1a1a2e;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a73e8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.settings-select:focus {
+  outline: none;
+  border-color: #1a73e8;
+}
+
+.settings-hint {
+  font-size: 0.82rem;
+  color: #666;
+  margin-bottom: 0;
+  line-height: 1.45;
+}
+
+.settings-save-btn {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.settings-save-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.settings-save-btn:active {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   Test Yourself – quiz scene
+   -------------------------------------------------------------------------- */
+.test-scene {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem 1.25rem 2rem;
+  gap: 1rem;
+}
+
+/* Score bar */
+.test-score-bar {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.test-score-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.test-score-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-left: auto;
+}
+
+.score-correct  { color: #1e7e3e; }
+.score-sep      { color: #aaa; margin: 0 2px; }
+.score-seen     { color: #555; }
+
+.test-score-remaining {
+  font-size: 0.75rem;
+  color: #aaa;
+  white-space: nowrap;
+}
+
+/* Test card */
+.test-card {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 28px rgba(0,0,0,0.12);
+  padding: 2rem 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.test-prompt-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.test-english-word {
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Choices */
+.test-choices {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.test-choice-btn {
+  width: 100%;
+  padding: 0.9rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  background: #fff;
+  color: #1a1a2e;
+  cursor: pointer;
+  transition: border-color 0.12s ease, background 0.12s ease, transform 0.1s ease;
+  text-align: center;
+}
+
+/* .test-choice-btn:hover:not(:disabled) {
+  border-color: #1a73e8;
+  background: #f0f6ff;
+  transform: translateY(-1px);
+} */
+
+.test-choice-btn:disabled {
+  cursor: default;
+}
+
+.test-choice-btn.choice-correct {
+  background: #d4edda;
+  border-color: #1e7e3e;
+  color: #1e7e3e;
+}
+
+.test-choice-btn.choice-incorrect {
+  background: #f8d7da;
+  border-color: #b31412;
+  color: #b31412;
+}
+
+/* "Nichts des oben Genannten" — always the last button */
+.test-choice-btn:last-child {
+  border-style: dashed;
+  color: #555;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.test-choice-btn:last-child:hover:not(:disabled) {
+  border-color: #888;
+  background: #f5f5f5;
+}
+
+.test-choice-btn:focus-visible {
+  outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   Test Yourself – summary screen
+   -------------------------------------------------------------------------- */
+.summary-scene {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1.25rem 2.5rem;
+  gap: 1.25rem;
+}
+
+.summary-card {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 28px rgba(0,0,0,0.12);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.summary-heading {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.summary-score-ring {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a73e8 0%, #6a1bbd 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.summary-score-num {
+  font-size: 2.6rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.summary-score-denom {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.summary-stats {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.summary-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.stat-icon {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.stat-count {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-correct .stat-icon,
+.stat-correct .stat-count { color: #1e7e3e; }
+
+.stat-incorrect .stat-icon,
+.stat-incorrect .stat-count { color: #b31412; }
+
+.summary-actions {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Words to Learn list */
+.words-to-learn {
+  width: 100%;
+  max-width: 500px;
+}
+
+.words-to-learn-heading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #b31412;
+  margin-bottom: 0.5rem;
+}
+
+.words-to-learn-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.words-to-learn-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  background: #fff;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  gap: 1rem;
+}
+
+.wtl-german {
+  font-weight: 700;
+  color: #1a1a2e;
+  flex-shrink: 0;
+}
+
+.wtl-english {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: right;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive tweaks
+   -------------------------------------------------------------------------- */
+@media (max-width: 400px) {
+  .menu-btn {
+    font-size: 1rem;
+    padding: 1rem 1.25rem;
+  }
+}

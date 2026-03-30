@@ -1,0 +1,69 @@
+<nav class="navbar app-navbar">
+  <div class="container-fluid d-flex align-items-center gap-3">
+    <button class="btn btn-sm btn-back" id="js-back">
+      &#8592; Back
+    </button>
+    <span class="navbar-brand text-white mb-0 h5 me-auto">
+      Vocabulary
+    </span>
+    <span class="level-badge"><%= level %></span>
+  </div>
+</nav>
+
+<div class="flashcard-scene">
+
+  <!-- Progress indicator -->
+  <div class="progress-row">
+    <div class="progress-label">Card <%= current %> of <%= total %></div>
+    <div class="progress" role="progressbar"
+         aria-valuenow="<%= current %>"
+         aria-valuemin="1"
+         aria-valuemax="<%= total %>">
+      <div class="progress-bar bg-primary"
+           style="width: <%= Math.round((current / total) * 100) %>%">
+      </div>
+    </div>
+  </div>
+
+  <!-- Card (flip container) -->
+  <div class="card-scene">
+    <div class="card-flipper" id="js-card">
+
+      <!-- Front face: German word -->
+      <div class="card-face card-front">
+        <p class="word-german"><%= de %></p>
+        <p class="tap-hint">Tap to reveal</p>
+      </div>
+
+      <!-- Back face: English meaning -->
+      <div class="card-face card-back">
+        <p class="word-english"><%= en %></p>
+        <p class="word-sub"><%= de %></p>
+      </div>
+
+    </div>
+
+    <!-- Next-card button: right-edge click zone for non-touch devices -->
+    <button class="card-next-btn" id="js-next-btn" aria-label="Next card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+           fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+        <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6
+                 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Gesture hint -->
+  <div class="swipe-hint">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+         fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+      <path fill-rule="evenodd"
+            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4
+               4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707
+               8.5H14.5A.5.5 0 0 0 15 8z"/>
+    </svg>
+    Swipe left for next card
+  </div>
+
+</div>

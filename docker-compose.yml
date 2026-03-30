@@ -1,0 +1,51 @@
+services:
+
+  # ---------------------------------------------------------------------------
+  # dev – Live-reload development server
+  #
+  # • Mounts ./src into the container so the gulp watcher picks up local edits
+  # • BrowserSync serves the compiled output on http://localhost:3000
+  # • BrowserSync admin UI is available on http://localhost:3001
+  #
+  # Start:  docker compose up dev
+  # ---------------------------------------------------------------------------
+  dev:
+    build:
+      context: .
+      target:  dev-deps
+    container_name: german-dev-server
+    volumes:
+      # Source files: edits on the host are reflected immediately
+      - ./src:/app/src:delegated
+      # Build output is bind-mounted to ./build on the host for easy access
+      - ./build:/app/build
+      # node_modules lives inside the container only (avoids host/container
+      # architecture conflicts on Apple Silicon / ARM)
+      - /app/node_modules
+    ports:
+      - "3000:3000"   # BrowserSync web server
+      - "3001:3001"   # BrowserSync admin UI
+    command: npm run serve
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # app – Production build served by nginx
+  #
+  # • Compiles the full optimised bundle during docker build
+  # • nginx serves the artefacts on http://localhost:8080
+  #
+  # Start:  docker compose up app  (or  docker compose up --build app)
+  # ---------------------------------------------------------------------------
+  app:
+    build:
+      context: .
+      target:  prod
+    container_name: german-prod-server
+    ports:
+      - "8080:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+

@@ -1,0 +1,35 @@
+<nav class="navbar app-navbar">
+  <div class="container-fluid d-flex align-items-center">
+    <span class="navbar-brand text-white mb-0 h5 me-auto">
+      German Flashcards
+    </span>
+    <button class="btn settings-icon-btn" data-action="settings" aria-label="Settings">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <line x1="2" y1="5"  x2="18" y2="5"  stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="7"  cy="5"  r="2.5" fill="white"/>
+        <line x1="2" y1="10" x2="18" y2="10" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="13" cy="10" r="2.5" fill="white"/>
+        <line x1="2" y1="15" x2="18" y2="15" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="8"  cy="15" r="2.5" fill="white"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<div class="menu-body">
+  <p class="menu-title">What would you like to study?</p>
+  <div class="menu-grid">
+    <button class="menu-btn menu-btn-vocab" data-action="vocabulary">
+      Vocabulary
+      <span class="level-description">A1 · A2 · B1 word sets</span>
+    </button>
+    <button class="menu-btn menu-btn-test" data-action="test">
+      Test Yourself
+      <span class="level-description"><%= deckSize %>-word <%= level %> quiz (English &#8594; German)</span>
+    </button>
+    <button class="menu-btn menu-btn-test-reverse" data-action="test-reverse">
+      Test Yourself
+      <span class="level-description"><%= deckSize %>-word <%= level %> quiz (German &#8594; English)</span>
+    </button>
+  </div>
+</div>

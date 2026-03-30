@@ -110,7 +110,7 @@ var TestView = Backbone.View.extend({
       : (chosen === this._correctAnswer);
 
     // Disable all buttons while feedback is visible
-    this.$('.test-choice-btn').prop('disabled', true).blur();
+    this.$('.test-choice-btn').prop('disabled', true);
 
     if (isCorrect) {
       $btn.addClass('choice-correct');

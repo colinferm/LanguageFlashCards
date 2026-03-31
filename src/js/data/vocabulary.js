@@ -12,13 +12,13 @@
              food | transport | place | health | weather | time | home | clothing |
              work | education | finance | action | state | description | question |
              communication | identity | society | abstract | legal | community |
-             sense | nature | media
+             sense | nature | media | sport | cooking
    ========================================================================== */
 
 var VocabularyData = {
 
   // --------------------------------------------------------------------------
-  // A1 – Beginner  (147 entries)
+  // A1 – Beginner  (172 entries)
   // --------------------------------------------------------------------------
   A1: [
     // Greetings & courtesies
@@ -190,6 +190,31 @@ var VocabularyData = {
     { de: "der Kuchen",    en: "cake",       part: "noun", subject: "food" },
     { de: "der Käse",      en: "cheese",     part: "noun", subject: "food" },
 
+    // Vegetables & produce
+    { de: "die Tomate",    en: "tomato",     part: "noun", subject: "food" },
+    { de: "die Karotte",   en: "carrot",     part: "noun", subject: "food" },
+    { de: "die Zwiebel",   en: "onion",      part: "noun", subject: "food" },
+    { de: "der Knoblauch", en: "garlic",     part: "noun", subject: "food" },
+    { de: "die Gurke",     en: "cucumber",   part: "noun", subject: "food" },
+    { de: "die Paprika",   en: "bell pepper",part: "noun", subject: "food" },
+    { de: "der Spinat",    en: "spinach",    part: "noun", subject: "food" },
+    { de: "die Pastinake", en: "parsnip",    part: "noun", subject: "food" },
+    { de: "die Olive",     en: "olive",      part: "noun", subject: "food" },
+
+    // Fruit
+    { de: "die Banane",    en: "banana",     part: "noun", subject: "food" },
+    { de: "die Orange",    en: "orange",     part: "noun", subject: "food" },
+    { de: "die Erdbeere",  en: "strawberry", part: "noun", subject: "food" },
+    { de: "die Zitrone",   en: "lemon",      part: "noun", subject: "food" },
+
+    // Staples & basics
+    { de: "die Butter",    en: "butter",     part: "noun", subject: "food" },
+    { de: "das Salz",      en: "salt",       part: "noun", subject: "food" },
+    { de: "der Zucker",    en: "sugar",      part: "noun", subject: "food" },
+    { de: "das Öl",        en: "oil",        part: "noun", subject: "food" },
+    { de: "die Nudeln",    en: "pasta / noodles", part: "noun", subject: "food" },
+    { de: "der Saft",      en: "juice",      part: "noun", subject: "food" },
+
     // Animals & nature
     { de: "der Hund",   en: "dog",    part: "noun", subject: "nature" },
     { de: "die Katze",  en: "cat",    part: "noun", subject: "nature" },
@@ -198,11 +223,15 @@ var VocabularyData = {
 
     // Arts & leisure
     { de: "die Musik", en: "music",      part: "noun", subject: "media" },
-    { de: "der Film",  en: "film / movie",part: "noun", subject: "media" }
+    { de: "der Film",  en: "film / movie",part: "noun", subject: "media" },
+
+    // Sport
+    { de: "der Ball",  en: "ball",       part: "noun", subject: "sport" },
+    { de: "der Sport", en: "sport",      part: "noun", subject: "sport" }
   ],
 
   // --------------------------------------------------------------------------
-  // A2 – Elementary  (148 entries)
+  // A2 – Elementary  (179 entries)
   // --------------------------------------------------------------------------
   A2: [
     // Transport & travel
@@ -234,7 +263,9 @@ var VocabularyData = {
     { de: "das Büro",        en: "office",        part: "noun", subject: "work"      },
     { de: "der Markt",       en: "market",        part: "noun", subject: "place"     },
     { de: "die Bibliothek",  en: "library",       part: "noun", subject: "education" },
-    { de: "das Schwimmbad",  en: "swimming pool", part: "noun", subject: "place"     },
+    { de: "das Schwimmbad",  en: "swimming pool", part: "noun", subject: "sport"     },
+    { de: "schwimmen",       en: "to swim",       part: "verb", subject: "sport"     },
+    { de: "der Fußball",     en: "football / soccer", part: "noun", subject: "sport" },
     { de: "der Park",        en: "park",          part: "noun", subject: "place"     },
 
     // Health
@@ -383,6 +414,34 @@ var VocabularyData = {
     { de: "das Mittagessen", en: "lunch",     part: "noun", subject: "food" },
     { de: "das Abendessen",  en: "dinner",    part: "noun", subject: "food" },
 
+    // More food & drink
+    { de: "das Hähnchen",    en: "chicken",           part: "noun",      subject: "food"    },
+    { de: "das Rindfleisch", en: "beef",              part: "noun",      subject: "food"    },
+    { de: "die Wurst",       en: "sausage",           part: "noun",      subject: "food"    },
+    { de: "der Schinken",    en: "ham",               part: "noun",      subject: "food"    },
+    { de: "der Salat",       en: "salad / lettuce",   part: "noun",      subject: "food"    },
+    { de: "die Soße",        en: "sauce / gravy",     part: "noun",      subject: "food"    },
+    { de: "die Sahne",       en: "cream",             part: "noun",      subject: "food"    },
+    { de: "das Joghurt",     en: "yoghurt",           part: "noun",      subject: "food"    },
+    { de: "die Marmelade",   en: "jam / marmalade",   part: "noun",      subject: "food"    },
+    { de: "der Pfeffer",     en: "pepper (spice)",    part: "noun",      subject: "food"    },
+    { de: "der Wein",        en: "wine",              part: "noun",      subject: "food"    },
+    { de: "das Bier",        en: "beer",              part: "noun",      subject: "food"    },
+
+    // Cooking basics
+    { de: "kochen",          en: "to cook / to boil", part: "verb",      subject: "cooking" },
+    { de: "grillen",         en: "to grill",          part: "verb",      subject: "cooking" },
+    { de: "schneiden",       en: "to cut / slice",    part: "verb",      subject: "cooking" },
+    { de: "schälen",         en: "to peel",           part: "verb",      subject: "cooking" },
+    { de: "der Herd",        en: "stove / cooker",    part: "noun",      subject: "cooking" },
+    { de: "der Backofen",    en: "oven",              part: "noun",      subject: "cooking" },
+    { de: "der Topf",        en: "saucepan / pot",    part: "noun",      subject: "cooking" },
+    { de: "die Pfanne",      en: "frying pan",        part: "noun",      subject: "cooking" },
+    { de: "das Messer",      en: "knife",             part: "noun",      subject: "cooking" },
+    { de: "die Schüssel",    en: "bowl",              part: "noun",      subject: "cooking" },
+    { de: "das Schneidebrett",en: "cutting board",    part: "noun",      subject: "cooking" },
+    { de: "die Mikrowelle",  en: "microwave",         part: "noun",      subject: "cooking" },
+
     // Nature
     { de: "der Wald",   en: "forest / woods", part: "noun", subject: "nature" },
     { de: "die Natur",  en: "nature",         part: "noun", subject: "nature" },
@@ -390,7 +449,7 @@ var VocabularyData = {
   ],
 
   // --------------------------------------------------------------------------
-  // B1 – Intermediate  (205 entries)
+  // B1 – Intermediate  (472 entries)
   // --------------------------------------------------------------------------
   B1: [
     // Abstract & conceptual nouns
@@ -611,7 +670,317 @@ var VocabularyData = {
     { de: "gründlich",      en: "thorough",                      part: "adjective", subject: "description" },
     { de: "gültig",         en: "valid",                         part: "adjective", subject: "legal"       },
     { de: "gesetzlich",     en: "legal / statutory",             part: "adjective", subject: "legal"       },
-    { de: "ehrenamtlich",   en: "voluntary / honorary",          part: "adjective", subject: "community"   }
+    { de: "ehrenamtlich",   en: "voluntary / honorary",          part: "adjective", subject: "community"   },
+
+    // Travel & tourism
+    { de: "die Buchung",           en: "booking / reservation",           part: "noun",      subject: "transport"    },
+    { de: "der Aufenthalt",        en: "stay / sojourn",                  part: "noun",      subject: "transport"    },
+    { de: "die Rückkehr",          en: "return (journey)",                part: "noun",      subject: "transport"    },
+    { de: "die Sehenswürdigkeit",  en: "sight / tourist attraction",      part: "noun",      subject: "place"        },
+    { de: "der Ausflug",           en: "excursion / day trip",            part: "noun",      subject: "transport"    },
+    { de: "die Unterkunft",        en: "accommodation",                   part: "noun",      subject: "place"        },
+    { de: "die Pension",           en: "guesthouse / B&B",                part: "noun",      subject: "place"        },
+    { de: "die Jugendherberge",    en: "youth hostel",                    part: "noun",      subject: "place"        },
+    { de: "der Reiseführer",       en: "travel guide / guidebook",        part: "noun",      subject: "transport"    },
+    { de: "das Visum",             en: "visa",                            part: "noun",      subject: "legal"        },
+    { de: "die Grenze",            en: "border / boundary",               part: "noun",      subject: "place"        },
+    { de: "der Zoll",              en: "customs / toll",                  part: "noun",      subject: "legal"        },
+    { de: "die Währung",           en: "currency",                        part: "noun",      subject: "finance"      },
+    { de: "die Strecke",           en: "route / stretch / distance",      part: "noun",      subject: "transport"    },
+    { de: "das Ausland",           en: "abroad / foreign country",        part: "noun",      subject: "place"        },
+
+    // Housing & living
+    { de: "die Wohngemeinschaft",  en: "shared flat (WG)",                part: "noun",      subject: "home"         },
+    { de: "der Vermieter",         en: "landlord",                        part: "noun",      subject: "home"         },
+    { de: "die Kündigung",         en: "notice / termination",            part: "noun",      subject: "legal"        },
+    { de: "die Kaution",           en: "security deposit",                part: "noun",      subject: "finance"      },
+    { de: "die Nebenkosten",       en: "utility costs / extras",          part: "noun",      subject: "finance"      },
+    { de: "renovieren",            en: "to renovate",                     part: "verb",      subject: "home"         },
+    { de: "umziehen",              en: "to move (house)",                 part: "verb",      subject: "action"       },
+    { de: "der Keller",            en: "cellar / basement",               part: "noun",      subject: "home"         },
+    { de: "das Stockwerk",         en: "floor / storey",                  part: "noun",      subject: "home"         },
+    { de: "der Dachboden",         en: "attic / loft",                    part: "noun",      subject: "home"         },
+    { de: "die Heizung",           en: "heating",                         part: "noun",      subject: "home"         },
+    { de: "der Aufzug",            en: "elevator / lift",                 part: "noun",      subject: "home"         },
+    { de: "die Immobilie",         en: "property / real estate",          part: "noun",      subject: "finance"      },
+    { de: "der Eigentümer",        en: "owner",                           part: "noun",      subject: "legal"        },
+    { de: "mieten",                en: "to rent",                         part: "verb",      subject: "home"         },
+
+    // Food & cooking
+    { de: "das Rezept",            en: "recipe",                          part: "noun",      subject: "food"         },
+    { de: "die Zutat",             en: "ingredient",                      part: "noun",      subject: "food"         },
+    { de: "braten",                en: "to fry / to roast",               part: "verb",      subject: "food"         },
+    { de: "backen",                en: "to bake",                         part: "verb",      subject: "food"         },
+    { de: "die Portion",           en: "portion / serving",               part: "noun",      subject: "food"         },
+    { de: "die Speisekarte",       en: "menu",                            part: "noun",      subject: "food"         },
+    { de: "vegetarisch",           en: "vegetarian",                      part: "adjective", subject: "food"         },
+    { de: "vegan",                 en: "vegan",                           part: "adjective", subject: "food"         },
+    { de: "das Gericht",           en: "dish / course",                   part: "noun",      subject: "food"         },
+    { de: "würzen",                en: "to season / to spice",            part: "verb",      subject: "food"         },
+    { de: "der Geschmack",         en: "taste / flavour",                 part: "noun",      subject: "sense"        },
+    { de: "die Allergie",          en: "allergy",                         part: "noun",      subject: "health"       },
+    { de: "die Mahlzeit",          en: "meal",                            part: "noun",      subject: "food"         },
+    { de: "zubereiten",            en: "to prepare (food)",               part: "verb",      subject: "food"         },
+
+    // More food – dishes, tastes & culinary vocabulary
+    { de: "die Vorspeise",         en: "starter / appetiser",             part: "noun",      subject: "food"         },
+    { de: "die Hauptspeise",       en: "main course",                     part: "noun",      subject: "food"         },
+    { de: "das Dessert",           en: "dessert",                         part: "noun",      subject: "food"         },
+    { de: "die Spezialität",       en: "speciality",                      part: "noun",      subject: "food"         },
+    { de: "der Teig",              en: "dough / batter / pastry",         part: "noun",      subject: "food"         },
+    { de: "das Gewürz",            en: "spice / seasoning",               part: "noun",      subject: "food"         },
+    { de: "die Küche",             en: "cuisine (culinary tradition)",     part: "noun",      subject: "food"         },
+    { de: "scharf",                en: "spicy / hot (taste)",             part: "adjective", subject: "food"         },
+    { de: "süß",                   en: "sweet",                           part: "adjective", subject: "food"         },
+    { de: "sauer",                 en: "sour / acidic",                   part: "adjective", subject: "food"         },
+    { de: "salzig",                en: "salty",                           part: "adjective", subject: "food"         },
+    { de: "bitter",                en: "bitter",                          part: "adjective", subject: "food"         },
+
+    // Cooking techniques
+    { de: "dämpfen",               en: "to steam",                        part: "verb",      subject: "cooking"      },
+    { de: "schmoren",              en: "to braise / stew",                part: "verb",      subject: "cooking"      },
+    { de: "dünsten",               en: "to sauté / steam gently",         part: "verb",      subject: "cooking"      },
+    { de: "pochieren",             en: "to poach",                        part: "verb",      subject: "cooking"      },
+    { de: "frittieren",            en: "to deep-fry",                     part: "verb",      subject: "cooking"      },
+    { de: "rösten",                en: "to roast / toast",                part: "verb",      subject: "cooking"      },
+    { de: "einlegen",              en: "to pickle / marinate",            part: "verb",      subject: "cooking"      },
+    { de: "marinieren",            en: "to marinate",                     part: "verb",      subject: "cooking"      },
+    { de: "begießen",              en: "to baste",                        part: "verb",      subject: "cooking"      },
+    { de: "blanchieren",           en: "to blanch",                       part: "verb",      subject: "cooking"      },
+    { de: "karamellisieren",       en: "to caramelise",                   part: "verb",      subject: "cooking"      },
+    { de: "verquirlen",            en: "to whisk / beat",                 part: "verb",      subject: "cooking"      },
+    { de: "kneten",                en: "to knead",                        part: "verb",      subject: "cooking"      },
+    { de: "abschmecken",           en: "to taste and adjust seasoning",   part: "verb",      subject: "cooking"      },
+    { de: "köcheln",               en: "to simmer",                       part: "verb",      subject: "cooking"      },
+    { de: "eindicken",             en: "to thicken",                      part: "verb",      subject: "cooking"      },
+    { de: "pürieren",              en: "to purée / blend",                part: "verb",      subject: "cooking"      },
+    { de: "hacken",                en: "to chop / mince",                 part: "verb",      subject: "cooking"      },
+    { de: "würfeln",               en: "to dice",                         part: "verb",      subject: "cooking"      },
+
+    // Cooking equipment
+    { de: "die Bratpfanne",        en: "frying pan (heavy / cast iron)",  part: "noun",      subject: "cooking"      },
+    { de: "das Backblech",         en: "baking tray / sheet",             part: "noun",      subject: "cooking"      },
+    { de: "die Auflaufform",       en: "casserole dish / baking pan",     part: "noun",      subject: "cooking"      },
+    { de: "der Kochlöffel",        en: "wooden spoon",                    part: "noun",      subject: "cooking"      },
+    { de: "der Schneebesen",       en: "whisk",                           part: "noun",      subject: "cooking"      },
+    { de: "das Sieb",              en: "sieve / colander",                part: "noun",      subject: "cooking"      },
+    { de: "die Reibe",             en: "grater",                          part: "noun",      subject: "cooking"      },
+    { de: "das Nudelholz",         en: "rolling pin",                     part: "noun",      subject: "cooking"      },
+    { de: "die Küchenwaage",       en: "kitchen scales",                  part: "noun",      subject: "cooking"      },
+    { de: "der Wasserkocher",      en: "electric kettle",                 part: "noun",      subject: "cooking"      },
+
+    // Herbs & spices
+    { de: "die Kräuter",           en: "herbs",                           part: "noun",      subject: "cooking"      },
+    { de: "die Petersilie",        en: "parsley",                         part: "noun",      subject: "cooking"      },
+    { de: "der Basilikum",         en: "basil",                           part: "noun",      subject: "cooking"      },
+    { de: "der Thymian",           en: "thyme",                           part: "noun",      subject: "cooking"      },
+    { de: "der Rosmarin",          en: "rosemary",                        part: "noun",      subject: "cooking"      },
+    { de: "der Ingwer",            en: "ginger",                          part: "noun",      subject: "cooking"      },
+    { de: "der Zimt",              en: "cinnamon",                        part: "noun",      subject: "cooking"      },
+    { de: "die Vanille",           en: "vanilla",                         part: "noun",      subject: "cooking"      },
+    { de: "die Chilischote",       en: "chilli pepper",                   part: "noun",      subject: "cooking"      },
+    { de: "die Prise",             en: "pinch (of salt etc.)",            part: "noun",      subject: "cooking"      },
+
+    // Culinary terminology
+    { de: "die Zubereitung",       en: "preparation (culinary)",          part: "noun",      subject: "cooking"      },
+    { de: "die Garzeit",           en: "cooking time",                    part: "noun",      subject: "cooking"      },
+
+    // Shopping & services
+    { de: "umtauschen",            en: "to exchange / return (goods)",    part: "verb",      subject: "finance"      },
+    { de: "der Rabatt",            en: "discount",                        part: "noun",      subject: "finance"      },
+    { de: "die Quittung",          en: "receipt",                         part: "noun",      subject: "finance"      },
+    { de: "die Garantie",          en: "guarantee / warranty",            part: "noun",      subject: "legal"        },
+    { de: "liefern",               en: "to deliver",                      part: "verb",      subject: "action"       },
+    { de: "die Lieferung",         en: "delivery",                        part: "noun",      subject: "action"       },
+    { de: "das Einkaufszentrum",   en: "shopping centre",                 part: "noun",      subject: "place"        },
+    { de: "die Reklamation",       en: "complaint / return request",      part: "noun",      subject: "communication"},
+    { de: "zurückgeben",           en: "to give back / return",           part: "verb",      subject: "action"       },
+    { de: "die Bestellung",        en: "order (purchase)",                part: "noun",      subject: "finance"      },
+
+    // Environment
+    { de: "der Klimawandel",       en: "climate change",                  part: "noun",      subject: "nature"       },
+    { de: "die Verschmutzung",     en: "pollution",                       part: "noun",      subject: "nature"       },
+    { de: "die Energie",           en: "energy",                          part: "noun",      subject: "nature"       },
+    { de: "erneuerbar",            en: "renewable",                       part: "adjective", subject: "nature"       },
+    { de: "die Ressource",         en: "resource",                        part: "noun",      subject: "abstract"     },
+    { de: "recyceln",              en: "to recycle",                      part: "verb",      subject: "nature"       },
+    { de: "schützen",              en: "to protect",                      part: "verb",      subject: "action"       },
+    { de: "die Katastrophe",       en: "disaster / catastrophe",          part: "noun",      subject: "nature"       },
+    { de: "das Hochwasser",        en: "flood",                           part: "noun",      subject: "nature"       },
+    { de: "die Dürre",             en: "drought",                         part: "noun",      subject: "nature"       },
+    { de: "der Sturm",             en: "storm",                           part: "noun",      subject: "weather"      },
+    { de: "das Klima",             en: "climate",                         part: "noun",      subject: "nature"       },
+    { de: "der Boden",             en: "ground / soil / floor",           part: "noun",      subject: "nature"       },
+    { de: "die Luft",              en: "air",                             part: "noun",      subject: "nature"       },
+    { de: "verschmutzen",          en: "to pollute",                      part: "verb",      subject: "nature"       },
+    { de: "die Küste",             en: "coast / coastline",               part: "noun",      subject: "nature"       },
+    { de: "der See",               en: "lake",                            part: "noun",      subject: "nature"       },
+
+    // Technology
+    { de: "die Technologie",       en: "technology",                      part: "noun",      subject: "media"        },
+    { de: "die Software",          en: "software",                        part: "noun",      subject: "media"        },
+    { de: "die App",               en: "app / application",               part: "noun",      subject: "media"        },
+    { de: "das Gerät",             en: "device / appliance",              part: "noun",      subject: "media"        },
+    { de: "der Akku",              en: "rechargeable battery",            part: "noun",      subject: "media"        },
+    { de: "herunterladen",         en: "to download",                     part: "verb",      subject: "media"        },
+    { de: "hochladen",             en: "to upload",                       part: "verb",      subject: "media"        },
+    { de: "die Datei",             en: "file (computer)",                 part: "noun",      subject: "media"        },
+    { de: "das Passwort",          en: "password",                        part: "noun",      subject: "media"        },
+    { de: "der Drucker",           en: "printer",                         part: "noun",      subject: "media"        },
+    { de: "die Tastatur",          en: "keyboard",                        part: "noun",      subject: "media"        },
+    { de: "der Bildschirm",        en: "screen / monitor",                part: "noun",      subject: "media"        },
+    { de: "speichern",             en: "to save / store (data)",          part: "verb",      subject: "media"        },
+    { de: "aktualisieren",         en: "to update",                       part: "verb",      subject: "media"        },
+    { de: "die Verbindung",        en: "connection / link",               part: "noun",      subject: "media"        },
+
+    // Sports & leisure
+    { de: "das Training",          en: "training / practice",             part: "noun",      subject: "sport"        },
+    { de: "der Wettkampf",         en: "competition / contest",           part: "noun",      subject: "sport"        },
+    { de: "der Verein",            en: "club / association",              part: "noun",      subject: "sport"        },
+    { de: "die Mannschaft",        en: "team (sports)",                   part: "noun",      subject: "sport"        },
+    { de: "trainieren",            en: "to train / to practise",          part: "verb",      subject: "sport"        },
+    { de: "das Stadion",           en: "stadium",                         part: "noun",      subject: "sport"        },
+    { de: "der Spieler",           en: "player",                          part: "noun",      subject: "sport"        },
+    { de: "der Schiedsrichter",    en: "referee / umpire",                part: "noun",      subject: "sport"        },
+    { de: "der Sieg",              en: "victory / win",                   part: "noun",      subject: "sport"        },
+    { de: "die Niederlage",        en: "defeat / loss",                   part: "noun",      subject: "sport"        },
+    { de: "das Turnier",           en: "tournament",                      part: "noun",      subject: "sport"        },
+    { de: "die Meisterschaft",     en: "championship",                    part: "noun",      subject: "sport"        },
+    { de: "der Rekord",            en: "record",                          part: "noun",      subject: "sport"        },
+    { de: "die Halbzeit",          en: "half-time",                       part: "noun",      subject: "sport"        },
+    { de: "körperlich",            en: "physical / bodily",               part: "adjective", subject: "sport"        },
+
+    // Fußball (football / soccer)
+    { de: "der Torwart",           en: "goalkeeper / goalie",             part: "noun",      subject: "sport"        },
+    { de: "das Unentschieden",     en: "draw / tie",                      part: "noun",      subject: "sport"        },
+    { de: "das Abseits",           en: "offside",                         part: "noun",      subject: "sport"        },
+    { de: "der Elfmeter",          en: "penalty kick",                    part: "noun",      subject: "sport"        },
+    { de: "der Freistoß",          en: "free kick",                       part: "noun",      subject: "sport"        },
+    { de: "die Ecke",              en: "corner kick",                     part: "noun",      subject: "sport"        },
+    { de: "das Tor",               en: "goal / gate",                     part: "noun",      subject: "sport"        },
+    { de: "das Trikot",            en: "jersey / kit",                    part: "noun",      subject: "sport"        },
+    { de: "der Stürmer",           en: "striker / forward",               part: "noun",      subject: "sport"        },
+    { de: "der Verteidiger",       en: "defender",                        part: "noun",      subject: "sport"        },
+    { de: "die Gelbe Karte",       en: "yellow card",                     part: "noun",      subject: "sport"        },
+    { de: "die Rote Karte",        en: "red card",                        part: "noun",      subject: "sport"        },
+    { de: "schießen",              en: "to shoot",                        part: "verb",      subject: "sport"        },
+    { de: "die Bundesliga",        en: "Bundesliga (German top division)",part: "noun",      subject: "sport"        },
+    { de: "der Aufstieg",          en: "promotion (to higher league)",    part: "noun",      subject: "sport"        },
+    { de: "der Abstieg",           en: "relegation",                      part: "noun",      subject: "sport"        },
+    { de: "köpfen",                en: "to head (the ball)",              part: "verb",      subject: "sport"        },
+    { de: "der Angriff",           en: "attack / offensive",              part: "noun",      subject: "sport"        },
+    { de: "die Abwehr",            en: "defence / defenders",             part: "noun",      subject: "sport"        },
+
+    // Arts & culture
+    { de: "die Kunst",             en: "art",                             part: "noun",      subject: "abstract"     },
+    { de: "die Ausstellung",       en: "exhibition",                      part: "noun",      subject: "community"    },
+    { de: "der Künstler",          en: "artist",                          part: "noun",      subject: "work"         },
+    { de: "die Literatur",         en: "literature",                      part: "noun",      subject: "education"    },
+    { de: "der Roman",             en: "novel",                           part: "noun",      subject: "media"        },
+    { de: "das Gedicht",           en: "poem",                            part: "noun",      subject: "education"    },
+    { de: "das Instrument",        en: "musical instrument",              part: "noun",      subject: "media"        },
+    { de: "die Bühne",             en: "stage",                           part: "noun",      subject: "community"    },
+    { de: "das Publikum",          en: "audience",                        part: "noun",      subject: "community"    },
+    { de: "der Eintritt",          en: "admission / entrance fee",        part: "noun",      subject: "finance"      },
+    { de: "das Werk",              en: "work (of art / literature)",      part: "noun",      subject: "abstract"     },
+    { de: "die Aufführung",        en: "performance",                     part: "noun",      subject: "community"    },
+    { de: "der Regisseur",         en: "director (film / theatre)",       part: "noun",      subject: "work"         },
+    { de: "die Kritik",            en: "criticism / review",              part: "noun",      subject: "communication"},
+    { de: "die Galerie",           en: "gallery",                         part: "noun",      subject: "place"        },
+
+    // Emotions & personality
+    { de: "die Freude",            en: "joy / delight",                   part: "noun",      subject: "description"  },
+    { de: "die Traurigkeit",       en: "sadness",                         part: "noun",      subject: "description"  },
+    { de: "die Hoffnung",          en: "hope",                            part: "noun",      subject: "abstract"     },
+    { de: "die Enttäuschung",      en: "disappointment",                  part: "noun",      subject: "description"  },
+    { de: "die Überraschung",      en: "surprise",                        part: "noun",      subject: "description"  },
+    { de: "die Geduld",            en: "patience",                        part: "noun",      subject: "description"  },
+    { de: "das Vertrauen",         en: "trust / confidence",              part: "noun",      subject: "abstract"     },
+    { de: "der Mut",               en: "courage",                         part: "noun",      subject: "description"  },
+    { de: "die Einsamkeit",        en: "loneliness",                      part: "noun",      subject: "description"  },
+    { de: "das Mitgefühl",         en: "sympathy / empathy",              part: "noun",      subject: "description"  },
+    { de: "der Stolz",             en: "pride",                           part: "noun",      subject: "description"  },
+    { de: "ehrlich",               en: "honest",                          part: "adjective", subject: "description"  },
+    { de: "geduldig",              en: "patient",                         part: "adjective", subject: "description"  },
+    { de: "mutig",                 en: "brave / courageous",              part: "adjective", subject: "description"  },
+    { de: "herzlich",              en: "warm / cordial",                  part: "adjective", subject: "description"  },
+    { de: "hilfsbereit",           en: "willing to help / helpful",       part: "adjective", subject: "description"  },
+    { de: "engagiert",             en: "committed / engaged",             part: "adjective", subject: "description"  },
+    { de: "motiviert",             en: "motivated",                       part: "adjective", subject: "description"  },
+
+    // Additional complex verbs
+    { de: "ausdrücken",            en: "to express",                      part: "verb",      subject: "communication"},
+    { de: "nachdenken",            en: "to think about / reflect",        part: "verb",      subject: "action"       },
+    { de: "vermuten",              en: "to assume / suspect",             part: "verb",      subject: "action"       },
+    { de: "bezweifeln",            en: "to doubt",                        part: "verb",      subject: "action"       },
+    { de: "anerkennen",            en: "to acknowledge / recognise",      part: "verb",      subject: "action"       },
+    { de: "fördern",               en: "to support / promote",            part: "verb",      subject: "action"       },
+    { de: "verhindern",            en: "to prevent",                      part: "verb",      subject: "action"       },
+    { de: "ermöglichen",           en: "to enable / make possible",       part: "verb",      subject: "action"       },
+    { de: "bewältigen",            en: "to cope with / overcome",         part: "verb",      subject: "action"       },
+    { de: "herausfinden",          en: "to find out",                     part: "verb",      subject: "action"       },
+    { de: "handeln",               en: "to act / deal / trade",           part: "verb",      subject: "action"       },
+    { de: "bedeuten",              en: "to mean / signify",               part: "verb",      subject: "communication"},
+    { de: "zunehmen",              en: "to increase / gain weight",       part: "verb",      subject: "state"        },
+    { de: "abnehmen",              en: "to decrease / lose weight",       part: "verb",      subject: "state"        },
+    { de: "sich beschweren",       en: "to complain",                     part: "verb",      subject: "communication"},
+    { de: "sich bewerben",         en: "to apply (for a job)",            part: "verb",      subject: "work"         },
+    { de: "sich kümmern",          en: "to take care of",                 part: "verb",      subject: "action"       },
+    { de: "übernehmen",            en: "to take over",                    part: "verb",      subject: "action"       },
+    { de: "überprüfen",            en: "to check / verify",               part: "verb",      subject: "action"       },
+    { de: "verzichten",            en: "to do without / give up",         part: "verb",      subject: "action"       },
+    { de: "riskieren",             en: "to risk",                         part: "verb",      subject: "action"       },
+    { de: "schätzen",              en: "to appreciate / estimate",        part: "verb",      subject: "action"       },
+    { de: "durchführen",           en: "to carry out / implement",        part: "verb",      subject: "action"       },
+    { de: "einschätzen",           en: "to assess / evaluate",            part: "verb",      subject: "action"       },
+    { de: "entsprechen",           en: "to correspond to / match",        part: "verb",      subject: "state"        },
+    { de: "abbrechen",             en: "to break off / cancel / abort",   part: "verb",      subject: "action"       },
+    { de: "vorwerfen",             en: "to accuse / reproach",            part: "verb",      subject: "communication"},
+    { de: "unterscheiden",         en: "to distinguish / differentiate",  part: "verb",      subject: "action"       },
+    { de: "beachten",              en: "to observe / pay attention to",   part: "verb",      subject: "action"       },
+    { de: "aufräumen",             en: "to tidy up / clear up",           part: "verb",      subject: "action"       },
+    { de: "sich verhalten",        en: "to behave / conduct oneself",     part: "verb",      subject: "action"       },
+
+    // Adverbs & discourse connectors
+    { de: "allerdings",            en: "however / admittedly",            part: "adverb",    subject: "description"  },
+    { de: "dagegen",               en: "on the other hand / against it",  part: "adverb",    subject: "description"  },
+    { de: "dennoch",               en: "nevertheless / yet",              part: "adverb",    subject: "description"  },
+    { de: "einerseits",            en: "on one hand",                     part: "adverb",    subject: "description"  },
+    { de: "andererseits",          en: "on the other hand",               part: "adverb",    subject: "description"  },
+    { de: "inzwischen",            en: "meanwhile / by now",              part: "adverb",    subject: "time"         },
+    { de: "insgesamt",             en: "altogether / overall",            part: "adverb",    subject: "description"  },
+    { de: "schließlich",           en: "finally / after all",             part: "adverb",    subject: "time"         },
+    { de: "übrigens",              en: "by the way / incidentally",       part: "adverb",    subject: "communication"},
+    { de: "zumindest",             en: "at least",                        part: "adverb",    subject: "description"  },
+    { de: "zwar",                  en: "admittedly / it is true that",    part: "adverb",    subject: "description"  },
+    { de: "lediglich",             en: "merely / only",                   part: "adverb",    subject: "description"  },
+
+    // Additional adjectives
+    { de: "aufmerksam",            en: "attentive / mindful",             part: "adjective", subject: "description"  },
+    { de: "beliebt",               en: "popular / well-liked",            part: "adjective", subject: "description"  },
+    { de: "deutlich",              en: "clear / distinct / obvious",      part: "adjective", subject: "description"  },
+    { de: "dringend",              en: "urgent",                          part: "adjective", subject: "description"  },
+    { de: "flexibel",              en: "flexible",                        part: "adjective", subject: "description"  },
+    { de: "freiwillig",            en: "voluntary",                       part: "adjective", subject: "description"  },
+    { de: "geeignet",              en: "suitable / appropriate",          part: "adjective", subject: "description"  },
+    { de: "hilfreich",             en: "helpful",                         part: "adjective", subject: "description"  },
+    { de: "kompetent",             en: "competent",                       part: "adjective", subject: "work"         },
+    { de: "kritisch",              en: "critical",                        part: "adjective", subject: "description"  },
+    { de: "sachlich",              en: "objective / factual",             part: "adjective", subject: "description"  },
+    { de: "vernünftig",            en: "reasonable / sensible",           part: "adjective", subject: "description"  },
+    { de: "verständlich",          en: "understandable / comprehensible", part: "adjective", subject: "description"  },
+    { de: "vorläufig",             en: "temporary / provisional",         part: "adjective", subject: "description"  },
+    { de: "zuständig",             en: "responsible / in charge",         part: "adjective", subject: "work"         },
+    { de: "wütend",                en: "angry / furious",                 part: "adjective", subject: "description"  },
+    { de: "ausführlich",           en: "detailed / thorough",             part: "adjective", subject: "description"  },
+    { de: "überzeugend",           en: "convincing / persuasive",         part: "adjective", subject: "description"  },
+
+    // Additional nouns
+    { de: "das Treffen",           en: "meeting / gathering",             part: "noun",      subject: "community"    },
+    { de: "die Forderung",         en: "demand / requirement",            part: "noun",      subject: "abstract"     },
+    { de: "das Anliegen",          en: "concern / request",               part: "noun",      subject: "communication"},
+    { de: "der Hinweis",           en: "hint / note / indication",        part: "noun",      subject: "communication"},
+    { de: "die Einigung",          en: "agreement / settlement",          part: "noun",      subject: "abstract"     }
   ]
 
 };

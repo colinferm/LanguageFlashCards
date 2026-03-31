@@ -20,7 +20,8 @@ var AppRouter = Backbone.Router.extend({
     'vocabulary/:level':  'flashcards',
     'test':               'test',
     'test-reverse':       'testReverse',
-    'settings':           'settings'
+    'settings':           'settings',
+    'missed':             'missed'
   },
 
   initialize: function () {
@@ -40,13 +41,22 @@ var AppRouter = Backbone.Router.extend({
   },
 
   flashcards: function (level) {
-    var validLevels = ['A1', 'A2', 'B1'];
-    var safeLevel   = validLevels.indexOf(level.toUpperCase()) !== -1
-                      ? level.toUpperCase()
-                      : 'A1';
-
     var collection = new FlashcardCollection();
-    collection.buildDeck(safeLevel);
+
+    if (level === 'missed') {
+      collection.buildMissedDeck();
+      // If nothing is missed yet, fall back to the vocab menu
+      if (collection.length === 0) {
+        Backbone.history.navigate('vocabulary', { trigger: true });
+        return;
+      }
+    } else {
+      var validLevels = ['A1', 'A2', 'B1'];
+      var safeLevel   = validLevels.indexOf(level.toUpperCase()) !== -1
+                        ? level.toUpperCase()
+                        : 'A1';
+      collection.buildDeck(safeLevel);
+    }
 
     this._show(new FlashcardView({ collection: collection }));
   },
@@ -61,6 +71,10 @@ var AppRouter = Backbone.Router.extend({
 
   settings: function () {
     this._show(new SettingsView());
+  },
+
+  missed: function () {
+    this._show(new MissedView());
   },
 
   // -----------------------------------------------------------------------

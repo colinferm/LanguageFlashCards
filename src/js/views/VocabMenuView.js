@@ -19,7 +19,13 @@ var VocabMenuView = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.html(this.template());
+    var allWords = [];
+    AppSettings.validLevels.forEach(function (l) {
+      if (VocabularyData[l]) { allWords = allWords.concat(VocabularyData[l]); }
+    });
+    this.$el.html(this.template({
+      hasMissed: WordStats.topMissed(allWords, 1).length > 0
+    }));
     this.$el.attr('style', 'min-height:100vh');
     return this;
   },

@@ -31,6 +31,9 @@ body {
    Navigation
    -------------------------------------------------------------------------- */
 .app-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
@@ -336,6 +339,11 @@ body {
 
 .menu-btn-test-reverse {
   background: linear-gradient(135deg, #b31a6b 0%, #7a003f 100%);
+  color: #fff;
+}
+
+.menu-btn-missed {
+  background: linear-gradient(135deg, #e65c00 0%, #a33e00 100%);
   color: #fff;
 }
 
@@ -790,4 +798,91 @@ body {
     font-size: 1rem;
     padding: 1rem 1.25rem;
   }
+}
+
+/* --------------------------------------------------------------------------
+   Vocab menu – missed words row (full-width, below the level grid)
+   -------------------------------------------------------------------------- */
+.vocab-missed-row {
+  margin-top: 1rem;
+}
+
+.vocab-missed-row .menu-btn {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Commonly Missed Words screen
+   -------------------------------------------------------------------------- */
+.missed-body {
+  padding: 1.5rem 1.25rem 3rem;
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.missed-empty {
+  margin-top: 3rem;
+  text-align: center;
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.missed-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.missed-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.missed-de {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #1a1a2e;
+}
+
+.missed-en {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: right;
+  margin-left: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Settings – clear button
+   -------------------------------------------------------------------------- */
+.settings-clear-btn {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 2px solid #d9534f;
+  border-radius: 10px;
+  background: transparent;
+  color: #d9534f;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.settings-clear-btn:hover {
+  background: #d9534f;
+  color: #fff;
+}
+
+.settings-clear-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
 }

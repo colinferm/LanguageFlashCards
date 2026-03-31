@@ -15,7 +15,8 @@ var MenuView = Backbone.View.extend({
     'click [data-action="vocabulary"]':   'onVocabulary',
     'click [data-action="test"]':         'onTest',
     'click [data-action="test-reverse"]': 'onTestReverse',
-    'click [data-action="settings"]':     'onSettings'
+    'click [data-action="settings"]':     'onSettings',
+    'click [data-action="missed"]':       'onMissed'
   },
 
   render: function () {
@@ -41,6 +42,10 @@ var MenuView = Backbone.View.extend({
 
   onSettings: function () {
     Backbone.history.navigate('settings', { trigger: true });
+  },
+
+  onMissed: function () {
+    Backbone.history.navigate('missed', { trigger: true });
   }
 
 });

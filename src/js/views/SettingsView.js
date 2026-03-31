@@ -14,7 +14,8 @@ var SettingsView = Backbone.View.extend({
   events: {
     'click #js-settings-back':   'onBack',
     'input #js-deck-size':       'onSliderInput',
-    'click #js-settings-save':   'onSave'
+    'click #js-settings-save':   'onSave',
+    'click #js-clear-stats':     'onClearStats'
   },
 
   // -----------------------------------------------------------------------
@@ -49,6 +50,17 @@ var SettingsView = Backbone.View.extend({
 
   onBack: function () {
     Backbone.history.navigate('', { trigger: true });
+  },
+
+  onClearStats: function () {
+    WordStats.reset();
+    WordStats.save();
+    // Brief visual confirmation on the button
+    var $btn = this.$('#js-clear-stats');
+    $btn.text('Cleared!').prop('disabled', true);
+    setTimeout(function () {
+      $btn.text('Clear missed words').prop('disabled', false);
+    }, 1500);
   }
 
 });

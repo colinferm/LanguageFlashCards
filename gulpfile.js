@@ -21,6 +21,7 @@ const paths = {
     './src/js/data/vocabulary.js',
     './src/js/templates.js',
     './src/js/models/AppSettings.js',      // must precede all views
+    './src/js/models/WordStats.js',
     './src/js/models/Flashcard.js',
     './src/js/models/FlashcardCollection.js',
     './src/js/views/MenuView.js',
@@ -28,6 +29,7 @@ const paths = {
     './src/js/views/FlashcardView.js',
     './src/js/views/TestView.js',
     './src/js/views/SettingsView.js',
+    './src/js/views/MissedView.js',
     './src/js/controllers/AppRouter.js',
     './src/js/app.js'
   ],

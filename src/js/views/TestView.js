@@ -85,6 +85,7 @@ var TestView = Backbone.View.extend({
   },
 
   _renderSummary: function () {
+    WordStats.save();
     this.$el.html(this._summaryTemplate({
       correct:   this._correct,
       incorrect: this._seen - this._correct,
@@ -112,12 +113,16 @@ var TestView = Backbone.View.extend({
     // Disable all buttons while feedback is visible
     this.$('.test-choice-btn').prop('disabled', true);
 
+    var card = this._deck[this._currentIndex];
+
     if (isCorrect) {
       $btn.addClass('choice-correct');
       this._correct++;
+      WordStats.decrement(card.de);
     } else {
       $btn.addClass('choice-incorrect');
-      this._missed.push(this._deck[this._currentIndex]);
+      this._missed.push(card);
+      WordStats.increment(card.de);
       // Reveal the correct answer
       var correctValue = this._correctIsNone ? this.NONE_ABOVE : this._correctAnswer;
       this.$('.test-choice-btn').each(function () {

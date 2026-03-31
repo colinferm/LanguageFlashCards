@@ -1,0 +1,27 @@
+<nav class="navbar app-navbar">
+  <div class="container-fluid d-flex align-items-center gap-3">
+    <button class="btn btn-sm btn-back" id="js-missed-back">
+      &#8592; Back
+    </button>
+    <span class="navbar-brand text-white mb-0 h5 me-auto">
+      Commonly Missed Words
+    </span>
+  </div>
+</nav>
+
+<div class="missed-body">
+  <% if (words.length === 0) { %>
+  <p class="missed-empty">
+    No missed words yet. Take a test to see your problem areas here.
+  </p>
+  <% } else { %>
+  <ul class="missed-list">
+    <% _.each(words, function (word) { %>
+    <li class="missed-item" data-missed="<%= word.count %>">
+      <span class="missed-de"><%= word.de %></span>
+      <span class="missed-en"><%= word.en %></span>
+    </li>
+    <% }); %>
+  </ul>
+  <% } %>
+</div>

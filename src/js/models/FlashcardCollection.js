@@ -43,6 +43,32 @@ var FlashcardCollection = Backbone.Collection.extend({
   },
 
   // -------------------------------------------------------------------------
+  // buildMissedDeck() – populate with words whose WordStats count > 0,
+  //                     sorted by miss count descending, capped at 50.
+  // -------------------------------------------------------------------------
+  buildMissedDeck: function () {
+    this.level        = 'missed';
+    this.currentIndex = 0;
+
+    var allWords = [];
+    AppSettings.validLevels.forEach(function (l) {
+      if (VocabularyData[l]) {
+        allWords = allWords.concat(VocabularyData[l].map(function (w) {
+          return _.extend({}, w, { level: l });
+        }));
+      }
+    });
+
+    var missed = _.filter(allWords, function (w) {
+      return WordStats.get(w.de) > 0;
+    });
+
+    missed = _.sortBy(missed, function (w) { return -WordStats.get(w.de); });
+
+    this.reset(missed.slice(0, 50));
+  },
+
+  // -------------------------------------------------------------------------
   // advance() – move to the next card, rebuilding the deck when exhausted.
   //             Returns the new current Flashcard.
   // -------------------------------------------------------------------------
@@ -50,8 +76,11 @@ var FlashcardCollection = Backbone.Collection.extend({
     this.currentIndex += 1;
 
     if (this.currentIndex >= this.length) {
-      // Deck exhausted – build a new one and start over
-      this.buildDeck(this.level);
+      if (this.level === 'missed') {
+        this.buildMissedDeck();
+      } else {
+        this.buildDeck(this.level);
+      }
     }
 
     return this.currentCard();

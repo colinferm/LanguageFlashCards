@@ -11,8 +11,9 @@ $(function () {
     return;
   }
 
-  // Load persisted user preferences before any view is created
+  // Load persisted user preferences and word stats before any view is created
   AppSettings.load();
+  WordStats.load();
 
   // Boot the router; Backbone.history.start() reads the current URL fragment
   // and fires the matching route handler immediately.
